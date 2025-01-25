@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- structure = "doc" -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="list-title">Item List</h1>
+    <div class="container">
+
+    <div class="row">
+    <input type="text" class="input-text" id="item-input"/>
+    <div onclick="addItemToArray();" class="add-btn">Add</div>
+    <img src="restart.png" class="custom-icon" onclick="refresh();">
+    </div>
+
+    <div id="shopping-placeholder" class="item-list-container"></div>
+</div>
+    <!-- button should go first cuz javascript needs to have all the html elements loaded before it executes the code inside javascript-->
+    <script src="app.js"></script>
+    <!-- script part that connects the files usually goes first in the body -->
+</body>
+</html>
