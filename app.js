@@ -65,6 +65,7 @@ function displayItemsFromArray() {
             statusDiv.classList.add("complete");
         } 
         statusDiv.innerHTML = itemStatus;
+        statusDiv.id = "status-" + i;
         controlButtonDiv.appendChild(statusDiv);
 
 
@@ -93,7 +94,6 @@ function displayItemsFromArray() {
         imageCheck.classList.add("checkmark");
         imageCheck.onclick = function () {
             markDone(this, i);
-            displayItemsFromArray();
         };
         controlButtonDiv.appendChild(imageCheck);
 
@@ -110,16 +110,28 @@ function displayItemsFromArray() {
 }
 
 function markDone(element, i) {
+    let statusDiv = document.getElementById(`status-${i}`);
+
     if (element.classList.contains("done")) {
-        // this part is for "undoing" the "done" action
+        // Undo "done" action
         element.classList.remove("done");
+        itemList[i].status = "incomplete";
         document.getElementById("todo-text-" + i).classList.remove("strike");
-        itemList[i].status = "incomplete"
+
+        // Update status label
+        statusDiv.classList.remove("complete");
+        statusDiv.classList.add("incomplete");
+        statusDiv.innerHTML = "incomplete";
     } else {
-        // this part is to aply "done"
+        // Apply "done"
         element.classList.add("done");
         document.getElementById("todo-text-" + i).classList.add("strike");
-        itemList[i].status = "complete"
+        itemList[i].status = "complete";
+
+        // Update status label
+        statusDiv.classList.remove("incomplete");
+        statusDiv.classList.add("complete");
+        statusDiv.innerHTML = "complete";
     }
 }
 
