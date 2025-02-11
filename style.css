@@ -5,6 +5,7 @@ body {
 }
 
 .container {
+    position: relative;
     width: 45%;
     min-height: 50vh;
     background-color: rgb(102, 120, 95);
@@ -134,4 +135,23 @@ body {
 .complete {
     background-color: green;
     margin-right: 14.5px;
+}
+
+.footer {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 93%;
+    margin: 0 auto;
+    background-color: red;
+    position: absolute;
+    bottom: 0px;
+}
+
+.item-count, 
+.statuses-filter, 
+.clear-button {
+    background-color: white;
+    width: 30%;
 }
