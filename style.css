@@ -83,7 +83,7 @@ body {
 
 .custom-icon-sm {
     width: 25px;
-    margin-left: 25px;
+    margin-left: 15px;
 }
 
 .custom-icon-sm:hover {
@@ -91,7 +91,7 @@ body {
 }
 
 .control-buttons {
-    width: 35%;
+    width: 37%;
     display: flex;
 }
 
@@ -133,4 +133,5 @@ body {
 
 .complete {
     background-color: green;
+    margin-right: 14.5px;
 }
