@@ -1,6 +1,5 @@
 let itemList = [];
 // basically a blank piece of paper to write the shopping list
-console.log(itemList);
 
 
 class TodoItem {
@@ -140,6 +139,11 @@ function refresh() {
     displayItemsFromArray();
 }
 
+function getTotalTasks() {
+    return itemList.length;
+}
 
-//comment
-
+window.onload = function () {
+    console.log(itemList);
+    console.log(getTotalTasks());
+}
