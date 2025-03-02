@@ -18,6 +18,7 @@ userInput.addEventListener("keydown", function (e) {
     }
 });
 
+
 function addItemToArray() {
     //displaying the pop-up for "input asking"
     let userAnswer = document.getElementById("item-input").value;
@@ -28,19 +29,9 @@ function addItemToArray() {
     // add the answer to an array
     itemList.push(todoItemObject);
     displayItemsFromArray();
+    showIncompleteItemCount();
 }
 
-//TODO!!! 1
-
-/*
-<div class="flexbox">
-            <div>Bread</div>
-            <div class="control-buttons">
-                <img src="trash.png" class="custom-icon-sm">
-                <img src="stop.png" class="custom-icon-sm">
-            </div>
-        </div>
-*/
 
 function displayItemsFromArray() {
     let itemListPlaceholder = document.getElementById("shopping-placeholder");
@@ -132,6 +123,7 @@ function markDone(element, i) {
         statusDiv.classList.add("complete");
         statusDiv.innerHTML = "complete";
     }
+    showIncompleteItemCount();
 }
 
 function refresh() {
@@ -139,11 +131,36 @@ function refresh() {
     displayItemsFromArray();
 }
 
-function getTotalTasks() {
-    return itemList.length;
+function getIncompleteTasksCount() {
+    let count = 0;
+    for (let i = 0; i < itemList.length; i++) {
+        let itemObject = itemList[i];
+        if (itemObject.status == "incomplete") {
+            count++;
+        }
+    }
+    return count;
 }
 
 window.onload = function () {
-    console.log(itemList);
-    console.log(getTotalTasks());
+    showIncompleteItemCount();
+}
+
+function showIncompleteItemCount() {
+    let itemSize = getIncompleteTasksCount();
+    document.getElementById("item-count").innerHTML = itemSize + " task(s) to do";
+}
+
+function clearCompleted() {
+    let newArray = [];
+    for (let i = 0; i < itemList.length; i++) {
+        let itemObject = itemList[i];
+        if (itemObject.status == "incomplete") {
+            newArray.push(itemObject);
+        }
+    }
+    // link the itemList with the new Array :
+    itemList = newArray;
+    displayItemsFromArray();
+    showIncompleteItemCount();
 }
