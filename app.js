@@ -73,6 +73,7 @@ function displayItemsFromArray() {
             let itemToBeRemovedId = arrayOfIdParts[2];
             itemList.splice(itemToBeRemovedId, 1);
             displayItemsFromArray();
+            showIncompleteItemCount();
         }
 
         controlButtonDiv.appendChild(imageTrash);
@@ -129,6 +130,7 @@ function markDone(element, i) {
 function refresh() {
     itemList = [];
     displayItemsFromArray();
+    showIncompleteItemCount();
 }
 
 function getIncompleteTasksCount() {
