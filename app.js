@@ -28,12 +28,12 @@ function addItemToArray() {
 
     // add the answer to an array
     itemList.push(todoItemObject);
-    displayItemsFromArray();
+    displayItemsFromArray('all');
     showIncompleteItemCount();
 }
 
 
-function displayItemsFromArray() {
+function displayItemsFromArray(visibility) {
     let itemListPlaceholder = document.getElementById("shopping-placeholder");
 
     // recets/empties the shoppingPlaceholder in order to avoid repeating the items
@@ -45,7 +45,7 @@ function displayItemsFromArray() {
 
         let controlButtonDiv = document.createElement("div");
         controlButtonDiv.classList.add("control-buttons");
-        
+
         let itemStatus = itemList[i].status;
         let statusDiv = document.createElement("div");
         statusDiv.classList.add("status-label");
@@ -53,13 +53,13 @@ function displayItemsFromArray() {
             statusDiv.classList.add("incomplete");
         } else {
             statusDiv.classList.add("complete");
-        } 
+        }
         statusDiv.innerHTML = itemStatus;
         statusDiv.id = "status-" + i;
         controlButtonDiv.appendChild(statusDiv);
 
 
-        
+
         let imageTrash = document.createElement("img");
         imageTrash.id = "trash-icon-" + i;
         imageTrash.src = "trash.png";
@@ -72,7 +72,7 @@ function displayItemsFromArray() {
             //   0.     1.   2.   
             let itemToBeRemovedId = arrayOfIdParts[2];
             itemList.splice(itemToBeRemovedId, 1);
-            displayItemsFromArray();
+            displayItemsFromArray('all');
             showIncompleteItemCount();
         }
 
@@ -96,7 +96,15 @@ function displayItemsFromArray() {
         // add the div element to the shopping-placeholder
         flexBoxDiv.appendChild(newItemDiv);
         flexBoxDiv.appendChild(controlButtonDiv);
-        itemListPlaceholder.appendChild(flexBoxDiv);
+        if (visibility == 'active' && itemStatus == 'incomplete') {
+            itemListPlaceholder.appendChild(flexBoxDiv);
+        }
+        else if (visibility == 'complete' && itemStatus == 'complete') {
+            itemListPlaceholder.appendChild(flexBoxDiv);
+        }
+        else if (visibility == 'all') {
+            itemListPlaceholder.appendChild(flexBoxDiv);
+        }
     }
 }
 
@@ -129,7 +137,7 @@ function markDone(element, i) {
 
 function refresh() {
     itemList = [];
-    displayItemsFromArray();
+    displayItemsFromArray('all');
     showIncompleteItemCount();
 }
 
@@ -163,6 +171,7 @@ function clearCompleted() {
     }
     // link the itemList with the new Array :
     itemList = newArray;
-    displayItemsFromArray();
+    displayItemsFromArray('all');
     showIncompleteItemCount();
 }
+
