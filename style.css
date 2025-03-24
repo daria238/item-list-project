@@ -173,3 +173,59 @@ body {
     cursor: pointer;
     font-weight: bold;
 }
+
+
+/*** MOBILE DEVICES STYLE ***/
+
+@media (max-width: 430px) {
+
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .row {
+        width: 100%;
+    }
+
+    .item-list-container {
+        padding-top: 0%;
+        font-size: 14px;
+        margin: 0;
+        width: 100%;
+        min-height: 20vh;
+    }
+
+    .control-buttons {
+        width: 40%;
+    }
+
+    .status-label {
+        font-size: 7px;
+        max-height: 10px;
+    }
+
+    .checkmark {
+        width: 20px;
+        height: 20px;
+    }
+
+    .custom-icon-sm {
+        width: 20px;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+
+    .item-count.row, 
+    .clear-button.row {
+        padding: 5px;
+    }
+
+    .footer {
+        margin-top: 20px;
+        position: relative;
+    }
+
+}
