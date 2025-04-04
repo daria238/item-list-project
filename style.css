@@ -58,7 +58,7 @@ body {
 
 .item-list-container {
     width: 80%;
-    min-height: 20px;
+    min-height: 40vh;
     margin: 0 auto;
     padding-top: 20px;
     font-size: 20px;
@@ -145,11 +145,12 @@ body {
     justify-content: center;
     width: 100%;
     margin: 0 auto;
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0px;
     border-top: 1px solid white;
     color: white;
+    margin-top: 20px;
 }
 
 .item-count, 
