@@ -105,6 +105,12 @@ function displayItemsFromArray(visibility) {
         else if (visibility == 'all') {
             itemListPlaceholder.appendChild(flexBoxDiv);
         }
+
+        if (itemList[i].status == "complete") {
+            imageCheck.classList.add("done");
+            newItemDiv.classList.add("strike");
+        }
+
     }
 }
 
